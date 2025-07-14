@@ -13,18 +13,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    
-    -name: fetch your code
-     uses: actions/checkout@v4
 
-    -name: login to docker hub
-     run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+    - name: fetch your code
+      uses: actions/checkout@v4
 
-    -name: build docker image
-     run: docker built -t ${{secrets.DOCKER_USERNAME}}/awsdeployment .
+    - name: login to docker hub
+      run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
 
-    -name: push docker image
-     run: docker push  ${{secrets.DOCKER_USERNAME}}/awsdeployment:latest
+    - name: build docker image
+      run: docker built -t ${{secrets.DOCKER_USERNAME}}/awsdeployment .
+
+    - name: push docker image
+      run: docker push  ${{secrets.DOCKER_USERNAME}}/awsdeployment:latest
     
 
     
