@@ -21,7 +21,7 @@ jobs:
       run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
 
     - name: build docker image
-      run: docker built -t ${{secrets.REPO}}/awsdeployment .
+      run: docker build -t ${{secrets.REPO}}/awsdeployment .
 
     - name: push docker image
       run: docker push  ${{secrets.REPO}}/awsdeployment:latest
